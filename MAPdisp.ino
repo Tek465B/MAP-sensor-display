@@ -35,6 +35,7 @@ void TakeReading() {
   MapkPA = map(MapVtot, 0, 1023, 88, 2080);
   MapkPA /= 10; //convert it to kPA
 
+  //Section below should be edited to read an input pin with pullup resistor and jumper to enable/disable calibration instead of re-programming the flash without the calibration.
 #ifdef SensCalib //wait 10 second then write the sensor value to eeprom, 10 sec give you time when re-uploading new program so it do not overwrite with a wrong value. You can replace the 101.3 with current atmos pressure.
   delay(10000);
   SensCal = 101.3 - MapkPA;
